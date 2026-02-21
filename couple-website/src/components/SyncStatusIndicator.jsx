@@ -3,10 +3,10 @@ import { useData } from '../data/DataContext'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function SyncStatusIndicator() {
-  const { syncStatus, lastSyncTime, manualSync, isCloudEnabled } = useData()
+  const { syncStatus, lastSyncTime, manualSync, isCloudEnabled, editMode } = useData()
 
-  // 如果没有配置云同步，不显示
-  if (!isCloudEnabled) {
+  // 如果没有配置云同步，或者不是编辑模式（0304登录），不显示
+  if (!isCloudEnabled || !editMode) {
     return null
   }
 

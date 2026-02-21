@@ -4,8 +4,8 @@
 
 // 基本信息
 export const coupleInfo = {
-  person1: '小明',
-  person2: '小红',
+  person1: '小宋',
+  person2: '小陈',
   startDate: '2022-05-20', // 相恋日期 YYYY-MM-DD
   firstMeetDate: '2022-03-14',
   motto: '我们的小宇宙',
