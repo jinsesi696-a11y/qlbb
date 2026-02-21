@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFF8F0 50%, #F0F4FF 100%);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #FFF0F5; }
+  ::-webkit-scrollbar-thumb { background: #fda4af; border-radius: 3px; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-md border border-white/40 rounded-2xl shadow-lg;
+  }
+  .romantic-gradient {
+    background: linear-gradient(135deg, #f43f5e, #ec4899, #a855f7);
+  }
+  .text-romantic {
+    background: linear-gradient(135deg, #f43f5e, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* 飘落的花瓣动画 */
+.petal {
+  position: fixed;
+  top: -10%;
+  z-index: 0;
+  pointer-events: none;
+  animation: petalFall linear infinite;
+  opacity: 0.6;
+}
+@keyframes petalFall {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.7; }
+  25% { transform: translateY(25vh) rotate(90deg) translateX(30px); }
+  50% { transform: translateY(50vh) rotate(180deg) translateX(-20px); opacity: 0.5; }
+  75% { transform: translateY(75vh) rotate(270deg) translateX(25px); }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(-10px); opacity: 0; }
+}
+
+/* 心跳动画 */
+.heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
